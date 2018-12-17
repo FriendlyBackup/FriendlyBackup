@@ -1,0 +1,41 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - microblog</title>
+        {% else %}
+        <title>microblog</title>
+        {% endif %}
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
+        <!-- Template Styles -->
+        <link rel="stylesheet"  href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <!-- CSS Reset -->
+        <link rel="stylesheet"  href="{{ url_for('static', filename='css/normalize.css') }}">
+        <!-- Milligram CSS minified -->
+        <link rel="stylesheet"  href="{{ url_for('static', filename='css/milligram.min.css') }}">
+        <!-- Main Styles -->
+        <link rel="stylesheet"  href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+      <div>
+          Microblog:
+          <a href="{{ url_for('index') }}">Home</a>
+          {% if current_user.is_anonymous %}
+          <a href="{{ url_for('login') }}">Login</a>
+          {% else %}
+          <a href="{{ url_for('logout') }}">Logout</a>
+          {% endif %}
+      </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
