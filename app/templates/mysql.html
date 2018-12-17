@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    MySQL
+{% endblock %}
+
+{% block content%}
+
+<h5 class="mt-2">Add rule</h5><a class="anchor" name="forms"></a>
+<div class="row grid-responsive">
+  <div class="column ">
+    <div class="card">
+      <div class="card-title">
+        <h3>MySQL</h3>
+      </div>
+      <div class="card-block">
+        <form>
+          <fieldset>
+            <label for="hostField">Hostname</label>
+            <input type="text" placeholder="127.0.0.1" id="nameField">
+            <label for="portField">Port</label>
+            <input type="text" placeholder="3306" id="nameField">
+            <label for="usernameField">Username</label>
+            <input type="text" placeholder="root" id="nameField">
+            <label for="passField">Password</label>
+            <input type="password" placeholder="Shh..." id="nameField">
+          </fieldset>
+          <button class="button button-outline">Connect</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
